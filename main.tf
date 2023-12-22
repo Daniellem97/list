@@ -1,16 +1,15 @@
 variable "example_list" {
   description = "Example list variable"
   type        = list(string)
-  default     = ["item1", "item2", "item3"]
 }
 
 locals {
-  list_length = length(var.example_list)
-  first_item  = var.example_list[0]
+  list_length = length(TF_VAR.list)
+  first_item  = TF_VAR.list[0]
 }
 
 output "list_contents" {
-  value = var.example_list
+  value = TF_VAR.list
 }
 
 output "list_length" {
